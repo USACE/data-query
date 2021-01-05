@@ -34,7 +34,7 @@ public class H2Dialect implements DatabaseDialect{
 
     @Override
     public String getSequenceSql(String sequenceName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return String.format("%s.NEXTVAL",sequenceName); 
     }
 
     @Override
