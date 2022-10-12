@@ -25,11 +25,20 @@
             <artifactId>oracle-jdbc</artifactId>
             <version>8-12.2.0.1</version>
           </dependency>
+         <!-- 
         <dependency>
             <groupId>org.postgres</groupId>
             <artifactId>postgres-jdbc</artifactId>
             <version>9.3-1102.jdbc41</version>
         </dependency>
+         --> 
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.2.23</version>
+</dependency>
+
         <dependency>
             <groupId>com.microsoft</groupId>
             <artifactId>sqlserver-jdbc</artifactId>

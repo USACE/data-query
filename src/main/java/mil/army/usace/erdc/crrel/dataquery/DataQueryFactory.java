@@ -58,6 +58,9 @@ public class DataQueryFactory {
             else if(productName.toLowerCase().contains("sqlserver")){
                 return new SqlServer(conn);
             }
+            else if(productName.toLowerCase().contains("postgresql")){
+                return new Postgres(conn);
+            }
             else{
                 throw new UnsupportedOperationException("Unsupported Database Connection");
             }
