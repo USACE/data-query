@@ -28,6 +28,7 @@ import java.nio.ByteBuffer;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.UUID;
+import javax.sql.PooledConnection;
 import mil.army.usace.erdc.crrel.dataquery.utils.DataQueryConverter;
 import oracle.jdbc.OracleConnection;
 import static oracle.sql.NUMBER.toBytes;
@@ -57,7 +58,12 @@ public class OracleConverter implements DataQueryConverter{
     
     public OracleConverter(Connection conn){
         try{
-            this.oc=conn.unwrap(OracleConnection.class);
+            if(conn instanceof PooledConnection){
+                System.out.println(((PooledConnection)conn).getConnection().getClass().getName());
+                this.oc=((PooledConnection)conn).getConnection().unwrap(OracleConnection.class);
+            } else {
+                this.oc=conn.unwrap(OracleConnection.class);
+            }
         }
         catch(Exception ex){
             throw new RuntimeException(ex);
